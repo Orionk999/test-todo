@@ -4,10 +4,16 @@ import { Todo } from './models/todo.model';
 
 
 export const estadoInicial: Todo[] = [
-    new Todo('Salvar al mundo'),
-    new Todo('Vencer a Thanos'),
-    new Todo('Comprar traje de Ironman'),
-    new Todo('Robar escudo del Capitán América'),
+    new Todo('Save the world'),
+    new Todo('Study Python'),
+    new Todo('Study Kubernetes'),
+    new Todo('Study React'),
+    new Todo('Study English'),
+    new Todo('Do exercise'),
+    new Todo('Reading books about philosophy'),
+    new Todo('work every day'),
+    new Todo('Sleep'),
+    new Todo('Be happy with your relationships'),
 ];
 
 const _todoReducer = createReducer(estadoInicial,
