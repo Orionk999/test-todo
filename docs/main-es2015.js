@@ -83,9 +83,9 @@ __webpack_require__.r(__webpack_exports__);
 class FiltroPipe {
     transform(todos, filtro) {
         switch (filtro) {
-            case 'completados':
+            case 'finished':
                 return todos.filter(todo => todo.completado);
-            case 'pendientes':
+            case 'todo':
                 return todos.filter(todo => !todo.completado);
             default:
                 return todos;
@@ -248,10 +248,10 @@ class TodoAddComponent {
     }
 }
 TodoAddComponent.ɵfac = function TodoAddComponent_Factory(t) { return new (t || TodoAddComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"])); };
-TodoAddComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TodoAddComponent, selectors: [["app-todo-add"]], decls: 4, vars: 1, consts: [[1, "header"], ["placeholder", "\u00BFQu\u00E9 quieres hacer?", "autofocus", "", 1, "new-todo", 3, "formControl", "keyup.enter"]], template: function TodoAddComponent_Template(rf, ctx) { if (rf & 1) {
+TodoAddComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TodoAddComponent, selectors: [["app-todo-add"]], decls: 4, vars: 1, consts: [[1, "header"], ["placeholder", "what do you want to do?", "autofocus", "", 1, "new-todo", 3, "formControl", "keyup.enter"]], template: function TodoAddComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "header", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "todos");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Todo...");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup.enter", function TodoAddComponent_Template_input_keyup_enter_3_listener() { return ctx.agregar(); });
@@ -411,8 +411,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _todos_todo_page_todo_page_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos/todo-page/todo-page.component */ "h6qI");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer/footer.component */ "fp1T");
-
 
 
 
@@ -422,10 +420,9 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 0, template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 1, vars: 0, template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-todo-page");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-footer");
-    } }, directives: [_todos_todo_page_todo_page_component__WEBPACK_IMPORTED_MODULE_1__["TodoPageComponent"], _footer_footer_component__WEBPACK_IMPORTED_MODULE_2__["FooterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_todos_todo_page_todo_page_component__WEBPACK_IMPORTED_MODULE_1__["TodoPageComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -483,10 +480,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const estadoInicial = [
-    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Salvar al mundo'),
-    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Vencer a Thanos'),
-    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Comprar traje de Ironman'),
-    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Robar escudo del Capitán América'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Save the world'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Study Python'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Study Kubernetes'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Study React'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Study English'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Do exercise'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Reading books about philosophy'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('work every day'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Sleep'),
+    new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"]('Be happy with your relationships'),
 ];
 const _todoReducer = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createReducer"])(estadoInicial, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["on"])(_todo_actions__WEBPACK_IMPORTED_MODULE_1__["crear"], (state, { texto }) => [...state, new _models_todo_model__WEBPACK_IMPORTED_MODULE_2__["Todo"](texto)]), Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["on"])(_todo_actions__WEBPACK_IMPORTED_MODULE_1__["limpiarTodos"], state => state.filter(todo => !todo.completado)), Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["on"])(_todo_actions__WEBPACK_IMPORTED_MODULE_1__["borrar"], (state, { id }) => state.filter(todo => todo.id !== id)), Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["on"])(_todo_actions__WEBPACK_IMPORTED_MODULE_1__["toggleAll"], (state, { completado }) => state.map(todo => {
     return Object.assign(Object.assign({}, todo), { completado: completado });
@@ -655,8 +658,8 @@ function TodoFooterComponent_li_6_Template(rf, ctx) { if (rf & 1) {
 class TodoFooterComponent {
     constructor(store) {
         this.store = store;
-        this.filtroActual = 'todos';
-        this.filtros = ['todos', 'completados', 'pendientes'];
+        this.filtroActual = 'todo';
+        this.filtros = ['all', 'finished', 'todo'];
         this.pendientes = 0;
     }
     ngOnInit() {
@@ -681,14 +684,14 @@ TodoFooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "strong");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, " tareas pendientes");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, " task to do");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "ul", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, TodoFooterComponent_li_6_Template, 4, 5, "li", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "button", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TodoFooterComponent_Template_button_click_7_listener() { return ctx.limpiarCompletados(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Limpiar completados");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "clear");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -844,7 +847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filtro_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filtro.actions */ "D458");
 
 
-const initialState = 'todos';
+const initialState = 'all';
 const _filtroReducer = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createReducer"])(initialState, Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["on"])(_filtro_actions__WEBPACK_IMPORTED_MODULE_1__["setFiltro"], (state, { filtro }) => filtro));
 function filtroReducer(state, action) {
     return _filtroReducer(state, action);
